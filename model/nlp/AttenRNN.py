@@ -132,13 +132,13 @@ class AttentionRNN(nn.Module):
             label = data['label']
             loss = self.criterion(y, label.view(-1))
             acc_result = self.accuracy_function(y, label, config, acc_result)
-            if mode == 'valid' or mode == 'test':
+            if mode == 'valid':
                 output = []
                 y = y.cpu().detach().numpy().tolist()
                 for i, guid in enumerate(data['guid']):
                     output.append([guid, label[i], y[i]])
                 return {"loss": loss, "acc_result": acc_result, "output": output}
-            elif mode == 'test_real':
+            elif mode == 'test':
                 output = []
                 y = y.cpu().detach().numpy().tolist()
                 for i, guid in enumerate(data['guid']):

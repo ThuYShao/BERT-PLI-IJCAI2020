@@ -20,7 +20,7 @@ def _truncate_seq_pair(tokens_a, tokens_b, max_length):
 
 
 def example_item_to_feature(example, max_seq_length,
-                                 tokenizer, output_mode,
+                                 tokenizer, output_mode, mode='test',
                                  cls_token_at_end=False, pad_on_left=False,
                                  cls_token='[CLS]', sep_token='[SEP]', pad_token=0,
                                  sequence_a_segment_id=0, sequence_b_segment_id=1,
@@ -75,6 +75,14 @@ def example_item_to_feature(example, max_seq_length,
     assert len(input_ids) == max_seq_length
     assert len(input_mask) == max_seq_length
     assert len(segment_ids) == max_seq_length
+
+    if mode == 'test':
+        res_dict = {
+            'input_ids': input_ids,
+            'input_mask': input_mask,
+            'segment_ids': segment_ids,
+        }
+        return res_dict
 
     if output_mode == "classification":
         label_id = int(example['label'])

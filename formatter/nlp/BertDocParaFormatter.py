@@ -51,7 +51,7 @@ class BertDocParaFormatter(BasicFormatter):
                         'label': label
                     }
                     res_dict = example_item_to_feature(example, self.max_len, self.tokenizer, self.output_mode,
-                                                       cls_token_at_end=False, pad_on_left=False,
+                                                       mode=mode, cls_token_at_end=False, pad_on_left=False,
                                                        cls_token_segment_id=0, pad_token_segment_id=0)
                     input_ids_row.append(res_dict['input_ids'])
                     attention_mask_row.append(res_dict['input_mask'])

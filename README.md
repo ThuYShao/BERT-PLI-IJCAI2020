@@ -86,9 +86,6 @@ python3 test.py -c config/nlp/AttenLSTM.config -g [GPU_LIST] --checkpoint [path 
 
 Please refer to [COLIEE 2019](https://sites.ualberta.ca/~rabelo/COLIEE2019/)
 
-## Note 
-
-Now the eval_metric are specific to the COLIEE task, please stay tuned for updates.
 
 ## Contact
 For more details, please refer to our paper **BERT-PLI: Modeling Paragraph-Level Interactions for Legal Case Retrieval** (*To Appear*). If you have any questions, please email shaoyq18@mails.tsinghua.edu.cn . 

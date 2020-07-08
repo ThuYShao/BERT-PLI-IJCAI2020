@@ -137,12 +137,7 @@ def valid(model, dataset, epoch, writer, config, gpu_list, output_function, mode
                       epoch)
 
     # eval results based on query micro F1
-    bm25_query_recall = 0.9273
     micro_prec_query, micro_recall_query, micro_f1_query = eval_micro_query(result)
-    if mode == 'test':
-        micro_recall_query = micro_recall_query * bm25_query_recall
-        if micro_f1_query > 0:
-            micro_f1_query = (2 * micro_prec_query * micro_recall_query) / (micro_prec_query + micro_recall_query)
     loss_tmp = total_loss / (step + 1)
     print('valid set: micro_prec_query=%.4f, micro_recall_query=%.4f, micro_f1_query=%.4f' %
           (micro_prec_query, micro_recall_query, micro_f1_query))

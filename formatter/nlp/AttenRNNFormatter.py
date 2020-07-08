@@ -17,8 +17,8 @@ class AttenRNNFormatter(BasicFormatter):
     def process(self, data, config, mode, *args, **params):
         inputs = []
         guids = []
-        # if mode != 'test':
-        labels = []
+        if mode != 'test':
+            labels = []
 
         for temp in data:
             guid = temp['guid']
@@ -27,16 +27,14 @@ class AttenRNNFormatter(BasicFormatter):
             inputs.append(emb_mtx)
             guids.append(guid)
 
-            # if mode != 'test':
-            labels.append(temp['label'])
+            if mode != 'test':
+                labels.append(temp['label'])
 
         inputs = torch.tensor(inputs)
-        # if mode != 'test':
-        labels = torch.LongTensor(labels)
-        return {'guid': guids, 'input': inputs, 'label': labels}
 
-        # if mode != 'test':
-        #     return {'guid': guids, 'input': inputs, 'label': labels}
-        # else:
-        #     return {'guid': guids, 'input': inputs}
+        if mode != 'test':
+            labels = torch.LongTensor(labels)
+            return {'guid': guids, 'input': inputs, 'label': labels}
+        else:
+            return {'guid': guids, 'input': inputs}
 
