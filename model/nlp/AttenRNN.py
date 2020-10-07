@@ -53,6 +53,7 @@ class AttentionRNN(nn.Module):
         self.fc_a = nn.Linear(self.hidden_dim*self.direction, self.hidden_dim*self.direction)
         self.attention = Attention(config)
         self.fc_f = nn.Linear(self.hidden_dim*self.direction, self.output_dim)
+        self.soft_max = nn.Softmax(dim=1)
         self.dropout = nn.Dropout(self.dropout_fc)
         self.weight = self.init_weight(config, gpu_list)
         self.criterion = nn.CrossEntropyLoss(weight=self.weight)
@@ -109,6 +110,7 @@ class AttentionRNN(nn.Module):
         self.fc_a = nn.DataParallel(self.fc_a, device_ids=device)
         self.attention = nn.DataParallel(self.attention, device_ids=device)
         self.fc_f = nn.DataParallel(self.fc_f, device_ids=device)
+        self.soft_max = nn.DataParallel(self.soft_max, device_ids=device)
 
     def forward(self, data, config, gpu_list, acc_result, mode):
         x = data['input'] # B * M * I
@@ -126,6 +128,7 @@ class AttentionRNN(nn.Module):
         atten_out = self.attention(feature, rnn_out) # B * (2H)
         atten_out = self.dropout(atten_out)
         y = self.fc_f(atten_out)
+        y = self.soft_max(y)
         y = y.view(y.size()[0], -1)
 
         if 'label' in data.keys():
