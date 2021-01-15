@@ -42,7 +42,7 @@ Examples of input data. Note that we cannot make the raw data public according t
     {
 	"guid": "queryID_paraID",
 	"text_a": text of the decision paragraph,
-    "text_b": text of the candidate paragraph,
+        "text_b": text of the candidate paragraph,
 	"label": 0 or 1 
     }
 ```
@@ -68,7 +68,7 @@ Examples of input data. Note that we cannot make the raw data public according t
     {
 	"guid": "queryID_docID",
 	"res": [[],...,[]], // N * 768, result of BertPoolOutMax,
-	 "label": 0, // 0 or 1, denote the relevance
+	"label": 0, // 0 or 1, denote the relevance
     }
 ```
 
