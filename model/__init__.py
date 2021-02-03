@@ -1,13 +1,9 @@
-from .nlp.BasicBert import BasicBert
 from .nlp.BertPoint import BertPoint
-from .nlp.BertPoolOut import BertPoolOut
 from .nlp.BertPoolOutMax import BertPoolOutMax
 from .nlp.AttenRNN import AttentionRNN
 
 model_list = {
-    "BasicBert": BasicBert,
     "BertPoint": BertPoint,
-    "BertPoolOut": BertPoolOut,
     "BertPoolOutMax": BertPoolOutMax,
     "AttenRNN": AttentionRNN
 }
