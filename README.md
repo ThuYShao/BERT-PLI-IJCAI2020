@@ -144,3 +144,15 @@ For example, in Stage 2, $learning rate = 10^{-5}$, $batch size = 16$, $training
 ## Contact
 For more details, please refer to our paper [BERT-PLI: Modeling Paragraph-Level Interactions for Legal Case Retrieval](https://www.ijcai.org/Proceedings/2020/0484.pdf). 
 If you have any questions, please email shaoyq18@mails.tsinghua.edu.cn . 
+
+
+## Citation
+```
+@inproceedings{shao2020bert,
+  title={BERT-PLI: Modeling Paragraph-Level Interactions for Legal Case Retrieval},
+  author={Shao, Yunqiu and Mao, Jiaxin and Liu, Yiqun and Ma, Weizhi and Satoh, Ken and Zhang, Min and Ma, Shaoping},
+  booktitle={Proceedings of the Twenty-Ninth International Joint Conference on Artificial Intelligence, IJCAI-20},
+  pages={3501--3507},
+  year={2020}
+}
+```
