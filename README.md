@@ -128,9 +128,9 @@ Please email shaoyq18@mails.tsinghua.edu.cn for the checkpoint of fine-tuned BER
 
 We follow the evaluation metrics in [COLIEEE 2019](https://sites.ualberta.ca/~rabelo/COLIEE2019/). Note that results should be evaluated on the whole document pool (e.g., 200 candidate documents for each query case.)
 
-$$ Precision = \fraq{# correctly retrieved cases (paragraphs) for all queries}{# retrieved cases (paragraphs) for all queries} $$
+$$ Precision = \fraq{correctly retrieved cases (paragraphs) for all queries}{retrieved cases (paragraphs) for all queries} $$
 
-$$ Recall = \fraq{# correctly retrieved cases (paragraphs) for all queries}{# relevant cases (paragraphs) for all queries} $$ 
+$$ Recall = \fraq{correctly retrieved cases (paragraphs) for all queries}{relevant cases (paragraphs) for all queries} $$ 
 
 $$ F-measure = \fraq{2 \times Precision \times Recall}{Precision + Recall}
 
